@@ -25,6 +25,18 @@ int main() {
         printf("-+-+-");
         printf("%c|%c|%c", positions[3], positions[4], positions[5]);
         printf("-+-+-");
-        printf("%c|%c|%c", positions[6], positions[7], positions[8]);
+        // 6???
+        printf("%c|%c|%c", positions[7], positions[8], positions[9]);
+
+        if (count % 2 == 0)
+        {
+            sign = 'x';
+            player = 1;
+        }
+        else
+        {
+            sign = "o";
+            player = 2;
+        }
     }
 }
