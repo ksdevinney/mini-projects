@@ -11,7 +11,7 @@ int main() {
     int flag;
     int i, j, k;
 
-    for (i = 0; i < 9; ++)
+    for (i = 0; i < 9; i++)
     {
         positions[i] = ' ';
     }
@@ -38,5 +38,7 @@ int main() {
             sign = "o";
             player = 2;
         }
+
+        printf("Move for player %i (1-9): ", player);
     }
 }
