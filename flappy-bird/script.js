@@ -1,3 +1,5 @@
+import { updateBird } from "./bird.js";
+
 document.addEventListener("keypress", handleStart, { once: true });
 const title = document.querySelector("[data-title]");
 
@@ -9,11 +11,10 @@ updateLoop = (time) => {
         window.requestAnimationFrame(updateLoop);
         return;
     }
-
-    window.requestAnimationFrame(updateLoop);
-    lastTime = time;
-
     const delta = time - lastTime;
+    updateBird(delta);
+    lastTime = time;
+    window.requestAnimationFrame(updateLoop);
 }
 
 // start game
