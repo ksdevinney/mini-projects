@@ -13,7 +13,7 @@ updateLoop = (time) => {
     window.requestAnimationFrame(updateLoop);
     lastTime = time;
 
-    console.log(time - lastTime);
+    const delta = time - lastTime;
 }
 
 // start game
