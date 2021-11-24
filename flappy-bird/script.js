@@ -1,11 +1,12 @@
 import { updateBird } from "./bird.js";
 
-document.addEventListener("keypress", handleStart, { once: true });
 const title = document.querySelector("[data-title]");
+
+document.addEventListener("keypress", handleStart(), { once: true });
 
 let lastTime;
 
-updateLoop = (time) => {
+function updateLoop(time) {
     if (lastTime == null) {
         lastTime = time;
         window.requestAnimationFrame(updateLoop);
@@ -15,15 +16,15 @@ updateLoop = (time) => {
     updateBird(delta);
     lastTime = time;
     window.requestAnimationFrame(updateLoop);
-}
+};
 
 // start game
-handleStart = () => {
+function handleStart() {
     title.classList.add("hide");
     window.requestAnimationFrame(updateLoop);
 };
 
 // end game
-handleLose = () => {
+// handleLose = () => {
 
-}
+// }
