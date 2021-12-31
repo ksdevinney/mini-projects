@@ -16,11 +16,15 @@
     </header>
     <main>
         <div class="container">
-            <span class="first-number"></span>
-            <span class="guessed-number"></span>
+            <div class="number-box">
+                <p class="first-number">1</p>
+                <p class="target-number">2</p>
+            </div>
+            <!-- <div class="guessed-number"></div> -->
             <form>
                 <label for="guess">Your guess?</label>
-                <input type="text" name="number-guess" id="number-guess">
+                <button id="guessHigher">Higher!</button>
+                <button id="guessLower">Lower</button>
             </form>
         </div>
     </main>

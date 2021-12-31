@@ -3,3 +3,22 @@ body {
     margin-top: 100px;
     padding-left: 100px;
 }
+
+.number-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.first-number {
+    border: 10px;
+    height: 50px;
+    width: 50px;
+    border-color: black;
+}
+
+.target-number {
+    border: 10px;
+    height: 50px;
+    width: 50px;
+    border-color: black;
+}
