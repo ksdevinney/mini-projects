@@ -1,8 +1,12 @@
 const birdElement = document.querySelector("[data-bird]");
-const BIRD_SPEED = 5;
+const BIRD_SPEED = 0.5;
+
+export function setUpBird() {
+    setTop(window.innerHeight / 2)
+}
 
 export function updateBird(delta) {
-    setTop(getTop() + BIRD_SPEED);
+    setTop(getTop() + BIRD_SPEED * delta);
 
     console.log(getTop());
 }

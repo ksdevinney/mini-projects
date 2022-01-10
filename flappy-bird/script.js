@@ -1,8 +1,8 @@
-import { updateBird } from "./bird.js";
+import { updateBird, setUpBird } from "./bird.js";
 
 const title = document.querySelector("[data-title]");
 
-document.addEventListener("keypress", handleStart(), { once: true });
+document.addEventListener("keypress", handleStart, { once: true });
 
 let lastTime;
 
@@ -21,6 +21,7 @@ function updateLoop(time) {
 // start game
 function handleStart() {
     title.classList.add("hide");
+    setUpBird();
     window.requestAnimationFrame(updateLoop);
 };
 
