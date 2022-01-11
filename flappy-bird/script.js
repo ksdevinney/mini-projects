@@ -22,6 +22,7 @@ function updateLoop(time) {
 function handleStart() {
     title.classList.add("hide");
     setUpBird();
+    lastTime = null;
     window.requestAnimationFrame(updateLoop);
 };
 
