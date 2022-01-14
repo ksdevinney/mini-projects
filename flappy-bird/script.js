@@ -44,7 +44,7 @@ function handleLose() {
   setTimeout(() => {
     title.classList.remove("hide");
     subtitle.classList.remove("hide");
-    // subtitle.textContent = "0 pipes cleared"
+    subtitle.textContent = "0 pipes cleared"
     document.addEventListener("keypress", handleStart, { once: true });
   }, 100);
 }
