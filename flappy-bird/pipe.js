@@ -1,5 +1,9 @@
 const HOLE_HEIGHT = 120;
 
+export function getPipeRects() {
+    return pipes.flatMap(pipe => pipe.rects())
+  }
+
 function createPipe() {
   const pipeElement = document.createElement("div");
   const topElement = createPipeSegment("top");
@@ -18,15 +22,15 @@ function createPipe() {
   const pipe = {
     get left() {
       return parseFloat(
-        getComputedStyle(pipeElem).getPropertyValue("--pipe-left")
+        getComputedStyle(pipeElement).getPropertyValue("--pipe-left")
       );
     },
     set left(value) {
-      pipeElem.style.setProperty("--pipe-left", value);
+      pipeElement.style.setProperty("--pipe-left", value);
     },
     remove() {
       pipes = pipes.filter((p) => p !== pipe);
-      pipeElem.remove();
+      pipeElement.remove();
     },
     rects() {
       return [
@@ -36,7 +40,7 @@ function createPipe() {
     },
   };
   pipe.left = window.innerWidth;
-  document.body.append(pipeElem);
+  document.body.append(pipeElement);
   pipes.push(pipe);
 }
 
