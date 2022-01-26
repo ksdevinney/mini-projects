@@ -16,6 +16,7 @@ function guessNumbers() {
     targetNumber = Math.floor(Math.random() * 11);
     console.log(firstNumber, targetNumber);
 
+    // find out if the second number is higher than the first
     if (firstNumber > targetNumber) {
         higher = false;
     } else if (firstNumber < targetNumber) {
@@ -32,6 +33,24 @@ function buttonRespond() {
     console.log("hello");
 }
 
+function answerIsHigher() {
+    event.preventDefault();
+    if (higher) {
+        console.log("You win!");
+    } else {
+        console.log("You lose!");
+    }
+}
+
+function answerIsLower() {
+    event.preventDefault();
+    if (!higher) {
+        console.log("You win!");
+    } else {
+        console.log("You lose!");
+    }
+}
+
 guessNumbers();
-higherButton.addEventListener("click", buttonRespond);
-lowerButton.addEventListener("click", buttonRespond);
+higherButton.addEventListener("click", answerIsHigher);
+lowerButton.addEventListener("click", answerIsLower);
