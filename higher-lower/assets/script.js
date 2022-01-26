@@ -30,7 +30,12 @@ function guessNumbers() {
 // how to get this for only one button?
 function buttonRespond() {
     event.preventDefault();
-    console.log("hello");
+    // console.log("hello");
+    if (firstNumber > targetNumber) {
+        console.log("lower")
+    } else {
+        console.log("higher")
+    }
 }
 
 function answerIsHigher() {
