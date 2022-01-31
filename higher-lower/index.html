@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="assets/style.css">
     <title>Higher/Lower</title>
 </head>
+
 <body>
     <header>
         <div class="main-header">
@@ -15,25 +17,32 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="number-box">
-                <!-- should display on load -->
-                <p class="first-number">1</p>
-                <!-- should hide until button clicked -->
-                <p class="target-number">2</p>
+        <section class=game>
+            <div class="container">
+                <div class="number-box">
+                    <!-- should display on load -->
+                    <div class="card">
+                        <p id="first-number"></p>
+                    </div>
+                    <!-- should hide until button clicked -->
+                    <div class="card">
+                        <p id="target-number"></p>
+                    </div>
+                </div>
+                <!-- <div class="guessed-number"></div> -->
+                <form>
+                    <!-- For user input -->
+                    <label for="guess">Is the next number higher or lower?</label>
+                    <button id="guessHigher">Higher!</button>
+                    <button id="guessLower">Lower</button>
+                </form>
             </div>
-            <!-- <div class="guessed-number"></div> -->
-            <form>
-                <!-- For user input -->
-                <label for="guess">Your guess?</label>
-                <button id="guessHigher">Higher!</button>
-                <button id="guessLower">Lower</button>
-            </form>
-        </div>
+        </section>
     </main>
     <footer>
         KD
     </footer>
     <script src="assets/script.js"></script>
 </body>
+
 </html>

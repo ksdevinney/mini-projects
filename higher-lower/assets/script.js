@@ -6,6 +6,10 @@ let win = false;
 // for correct answer
 let higher;
 
+// home for numbers
+firstNumberEl = document.getElementById("first-number");
+secondNumberEl = document.getElementById("target-number");
+
 // button elements
 const higherButton = document.getElementById("guessHigher");
 const lowerButton = document.getElementById("guessLower");
@@ -15,6 +19,7 @@ function guessNumbers() {
     firstNumber = Math.floor(Math.random() * 11);
     targetNumber = Math.floor(Math.random() * 11);
     console.log(firstNumber, targetNumber);
+    firstNumberEl.innerHTML = firstNumber;
 
     // find out if the second number is higher than the first
     if (firstNumber > targetNumber) {
@@ -28,34 +33,40 @@ function guessNumbers() {
 }
 
 // how to get this for only one button?
-function buttonRespond() {
-    event.preventDefault();
-    // console.log("hello");
-    if (firstNumber > targetNumber) {
-        console.log("lower")
-    } else {
-        console.log("higher")
-    }
-}
+// function buttonRespond() {
+//     event.preventDefault();
+//     if (firstNumber > targetNumber) {
+//         console.log("lower")
+//     } else {
+//         console.log("higher")
+//     }
+// }
 
 function answerIsHigher() {
     event.preventDefault();
     if (higher) {
-        console.log("You win!");
+        win = true;
+        alert("You win!");
     } else {
-        console.log("You lose!");
+        alert("You lose!");
     }
+    secondNumberEl.innerHTML = targetNumber;
 }
 
+// function very similar to answerIsHigher
+// try to consolidate?
 function answerIsLower() {
     event.preventDefault();
     if (!higher) {
-        console.log("You win!");
+        win = true;
+        alert("You win!");
     } else {
-        console.log("You lose!");
+        alert("You lose!");
     }
+    secondNumberEl.innerHTML = targetNumber;
 }
 
+// game play
 guessNumbers();
 higherButton.addEventListener("click", answerIsHigher);
 lowerButton.addEventListener("click", answerIsLower);
