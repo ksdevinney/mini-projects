@@ -14,10 +14,29 @@ body {
     border: 10px;
     height: 50px;
     width: 50px;
-    border: 5px solid black;
+    border: 5px solid #e74645;
     background-color: blanchedalmond;
 }
 
 .number-space {
     text-align: center;
+}
+
+button {
+    background-color: #227C9D;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-size: large;
+}
+
+#guessHigher:hover {
+    background-color: #FFCB77;
+    text-transform: uppercase;
+}
+
+#guessLower:hover {
+    background-color: #FE6D73;
+    text-transform: lowercase;
 }
