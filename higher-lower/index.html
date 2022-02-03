@@ -21,18 +21,21 @@
             <div class="container">
                 <div class="number-box">
                     <!-- should display on load -->
+                    <h3>Here's the first number!</h3>
                     <div class="card">
-                        <p id="first-number"></p>
+                        <p id="first-number" class="number-space"></p>
                     </div>
+                    <h3>Now for the second number...</h3>
                     <!-- should hide until button clicked -->
                     <div class="card">
-                        <p id="target-number"></p>
+                        <p id="target-number" class="number-space"></p>
                     </div>
                 </div>
                 <!-- <div class="guessed-number"></div> -->
                 <form>
                     <!-- For user input -->
-                    <label for="guess">Is the next number higher or lower?</label>
+                    <label for="guess">Is it...</label>
+                    <br>
                     <button id="guessHigher">Higher!</button>
                     <button id="guessLower">Lower</button>
                 </form>

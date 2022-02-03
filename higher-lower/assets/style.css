@@ -2,11 +2,12 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 100px;
     padding-left: 100px;
+    background-color: #1ac0c6;
 }
 
 .number-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .card {
@@ -14,4 +15,9 @@ body {
     height: 50px;
     width: 50px;
     border: 5px solid black;
+    background-color: blanchedalmond;
+}
+
+.number-space {
+    text-align: center;
 }
