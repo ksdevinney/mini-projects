@@ -1,6 +1,5 @@
 let firstNumber = 0;
 let targetNumber = 0;
-let userGuess = 0;
 let win = false;
 
 // for correct answer
@@ -31,16 +30,6 @@ function guessNumbers() {
         guessNumbers();
     }
 }
-
-// how to get this for only one button?
-// function buttonRespond() {
-//     event.preventDefault();
-//     if (firstNumber > targetNumber) {
-//         console.log("lower")
-//     } else {
-//         console.log("higher")
-//     }
-// }
 
 function answerIsHigher() {
     event.preventDefault();
