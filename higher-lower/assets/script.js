@@ -12,6 +12,7 @@ secondNumberEl = document.getElementById("target-number");
 // button elements
 const higherButton = document.getElementById("guessHigher");
 const lowerButton = document.getElementById("guessLower");
+const resetButton = document.getElementById("clearButton");
 
 // pick two numbers
 function guessNumbers() {
@@ -59,3 +60,4 @@ function answerIsLower() {
 guessNumbers();
 higherButton.addEventListener("click", answerIsHigher);
 lowerButton.addEventListener("click", answerIsLower);
+resetButton.addEventListener("click", reset());
