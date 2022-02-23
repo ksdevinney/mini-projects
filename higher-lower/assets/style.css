@@ -27,7 +27,7 @@ h1, h2, h3 {
     text-align: center;
 }
 
-#guessHigher, #guessLower {
+#guessHigher, #guessLower, #clearButton {
     background-color: #227C9D;
     border: none;
     padding: 1.5rem;

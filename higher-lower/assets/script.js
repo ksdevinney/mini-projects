@@ -56,8 +56,14 @@ function answerIsLower() {
     secondNumberEl.innerHTML = targetNumber;
 }
 
+function clearBoxes() {
+    firstNumberEl.innerHTML= '';
+    secondNumberEl.innerHTML= '';
+}
+
+resetButton.addEventListener("click", clearBoxes);
+
 // game play
 guessNumbers();
 higherButton.addEventListener("click", answerIsHigher);
 lowerButton.addEventListener("click", answerIsLower);
-resetButton.addEventListener("click", reset());
