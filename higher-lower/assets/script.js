@@ -41,6 +41,7 @@ function answerIsHigher() {
         alert("You lose!");
     }
     secondNumberEl.innerHTML = targetNumber;
+    document.getElementById("new-number").style.visibility="visible";
 }
 
 // function very similar to answerIsHigher
@@ -54,6 +55,7 @@ function answerIsLower() {
         alert("You lose!");
     }
     secondNumberEl.innerHTML = targetNumber;
+    document.getElementById("new-number").style.visibility="visible";
 }
 
 function clearBoxes() {

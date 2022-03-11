@@ -45,3 +45,7 @@ h1, h2, h3 {
     background-color: #FE6D73;
     text-transform: lowercase;
 }
+
+#new-number {
+    visibility: hidden;
+}
