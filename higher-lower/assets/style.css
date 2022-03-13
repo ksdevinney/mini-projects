@@ -10,6 +10,21 @@ h1, h2, h3 {
     text-shadow: 2px 1px #227C9D;
 }
 
+footer {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    color: #FEF9EF;
+}
+
+a:before {
+    color: #FEF9EF;
+}
+
+a:after {
+    color: #30292F;
+}
+
 .number-box {
     display: flex;
     flex-direction: column;
