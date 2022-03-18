@@ -63,4 +63,5 @@ a:after {
 
 #new-number {
     visibility: hidden;
+    margin: 1.5rem .5rem;
 }
