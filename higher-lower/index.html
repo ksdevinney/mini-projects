@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Higher/Lower</title>
+    <title>Higher or Lower?</title>
 </head>
+
 <body>
     <header>
         <div class="main-header">
             <h1>Higher or Lower?</h1>
-            <h4 class="subtitle">A fun guessing game</h3>
+            <h2>A fun guessing game</h2>
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="number-box">
-                <!-- should display on load -->
-                <p class="first-number">1</p>
-                <!-- should hide until button clicked -->
-                <p class="target-number">2</p>
+        <section class="game" id="gameBox">
+            <div class="container">
+                <div class="number-box">
+                    <!-- should display on load -->
+                    <h3>Here's the first number!</h3>
+                    <div class="card">
+                        <p id="first-number" class="number-space"></p>
+                    </div>
+                    <!-- <h3>Now for the second number...</h3> -->
+                    <form>
+                        <!-- For user guess -->
+                        <h3>Is the second number...</h3>
+                        <br>
+                        <button id="guessHigher">Higher!</button>
+                        <button id="guessLower">Lower...</button>
+                    
+                    <br>
+                    <!-- should hide until button clicked -->
+                    <div class="card" id="new-number">
+                        <p id="target-number" class="number-space"></p>
+                    </div>
+                    <input type="reset" value="Reset" id="clearButton">
+                </form>
+                </div>
             </div>
-            <!-- <div class="guessed-number"></div> -->
-            <form>
-                <!-- For user input -->
-                <label for="guess">Your guess?</label>
-                <button id="guessHigher">Higher!</button>
-                <button id="guessLower">Lower</button>
-            </form>
-        </div>
+            
+        </section>
     </main>
     <footer>
-        KD
+        2022 KD | <a href="https://github.com/ksdevinney/mini-projects/tree/main/higher-lower" target="_blank">GitHub</a>
     </footer>
     <script src="assets/script.js"></script>
 </body>
+
 </html>

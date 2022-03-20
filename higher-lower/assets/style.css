@@ -2,23 +2,66 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 100px;
     padding-left: 100px;
+    background-color: #1ac0c6;
+}
+
+h1, h2, h3 {
+    color: #FEF9EF;
+    text-shadow: 2px 1px #227C9D;
+}
+
+footer {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    color: #FEF9EF;
+}
+
+a:before {
+    color: #FEF9EF;
+}
+
+a:after {
+    color: #30292F;
 }
 
 .number-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.first-number {
+.card {
     border: 10px;
     height: 50px;
     width: 50px;
-    border-color: black;
+    border: 5px solid #30292F;
+    background-color: #FEF9EF;
 }
 
-.target-number {
-    border: 10px;
-    height: 50px;
-    width: 50px;
-    border-color: black;
+.number-space {
+    text-align: center;
+}
+
+#guessHigher, #guessLower, #clearButton {
+    background-color: #227C9D;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 5px;
+    color: #FEF9EF;
+    font-size: large;
+}
+
+#guessHigher:hover {
+    background-color: #FFCB77;
+    text-transform: uppercase;
+}
+
+#guessLower:hover {
+    background-color: #FE6D73;
+    text-transform: lowercase;
+}
+
+#new-number {
+    visibility: hidden;
+    margin: 1.5rem .5rem;
 }

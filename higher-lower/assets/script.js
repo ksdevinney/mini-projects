@@ -1,21 +1,27 @@
 let firstNumber = 0;
 let targetNumber = 0;
-let userGuess = 0;
 let win = false;
 
 // for correct answer
 let higher;
 
+// home for numbers
+firstNumberEl = document.getElementById("first-number");
+secondNumberEl = document.getElementById("target-number");
+
 // button elements
 const higherButton = document.getElementById("guessHigher");
 const lowerButton = document.getElementById("guessLower");
+const resetButton = document.getElementById("clearButton");
 
 // pick two numbers
 function guessNumbers() {
     firstNumber = Math.floor(Math.random() * 11);
     targetNumber = Math.floor(Math.random() * 11);
     console.log(firstNumber, targetNumber);
+    firstNumberEl.innerHTML = firstNumber;
 
+    // find out if the second number is higher than the first
     if (firstNumber > targetNumber) {
         higher = false;
     } else if (firstNumber < targetNumber) {
@@ -26,17 +32,40 @@ function guessNumbers() {
     }
 }
 
-// how to get this for only one button?
-function buttonRespond() {
+function answerIsHigher() {
     event.preventDefault();
-    // console.log("hello");
-    if (firstNumber > targetNumber) {
-        console.log("lower")
+    if (higher) {
+        win = true;
+        alert("You win!");
     } else {
-        console.log("higher")
+        alert("You lose!");
     }
+    secondNumberEl.innerHTML = targetNumber;
+    document.getElementById("new-number").style.visibility="visible";
 }
 
+// function very similar to answerIsHigher
+// try to consolidate?
+function answerIsLower() {
+    event.preventDefault();
+    if (!higher) {
+        win = true;
+        alert("You win!");
+    } else {
+        alert("You lose!");
+    }
+    secondNumberEl.innerHTML = targetNumber;
+    document.getElementById("new-number").style.visibility="visible";
+}
+
+function clearBoxes() {
+    firstNumberEl.innerHTML= '';
+    secondNumberEl.innerHTML= '';
+}
+
+resetButton.addEventListener("click", clearBoxes);
+
+// game play
 guessNumbers();
-higherButton.addEventListener("click", buttonRespond);
-lowerButton.addEventListener("click", buttonRespond);
+higherButton.addEventListener("click", answerIsHigher);
+lowerButton.addEventListener("click", answerIsLower);
