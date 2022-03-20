@@ -1,4 +1,5 @@
 import { updateBird, setUpBird, getBirdRect } from "./bird.js";
+import { updatePipes } from "./pipe.js";
 
 const title = document.querySelector("[data-title]");
 const subtitle = document.querySelector("[data-subtitle]");
@@ -15,6 +16,7 @@ function updateLoop(time) {
   }
   const delta = time - lastTime;
   updateBird(delta);
+  updatePipes(delta);
   if (checkLose()) {
     return handleLose();
   }

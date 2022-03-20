@@ -1,8 +1,25 @@
 const HOLE_HEIGHT = 120;
+const PIPE_INTERVAL = 1500;
+const PIPE_SPEED = .75;
+const pipes = [];
+let timeSinceLastPipe = 0;
 
 export function getPipeRects() {
     return pipes.flatMap(pipe => pipe.rects())
+}
+
+export function updatePipes(delta) {
+  timeSinceLastPipe += delta
+
+  if (timeSinceLastPipe > PIPE_INTERVAL) {
+    timeSinceLastPipe -= PIPE_INTERVAL;
+    createPipe();
   }
+
+  pipes.forEach(pipe => {
+    pipe.left = pipe.left - delta * PIPE_SPEED;
+  })
+}
 
 function createPipe() {
   const pipeElement = document.createElement("div");
