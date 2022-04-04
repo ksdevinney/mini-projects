@@ -1,8 +1,14 @@
 const HOLE_HEIGHT = 120;
+const PIPE_WIDTH = 120;
 const PIPE_INTERVAL = 1500;
 const PIPE_SPEED = .75;
 const pipes = [];
 let timeSinceLastPipe = 0;
+
+export function setupPipes() {
+  document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH)
+  document.documentElement.style.setProperty("--hole-height", HOLE_HEIGHT)
+}
 
 export function getPipeRects() {
     return pipes.flatMap(pipe => pipe.rects())

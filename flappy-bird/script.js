@@ -1,5 +1,5 @@
 import { updateBird, setUpBird, getBirdRect } from "./bird.js";
-import { updatePipes } from "./pipe.js";
+import { updatePipes, setupPipes } from "./pipe.js";
 
 const title = document.querySelector("[data-title]");
 const subtitle = document.querySelector("[data-subtitle]");
@@ -36,6 +36,7 @@ function checkLose() {
 function handleStart() {
   title.classList.add("hide");
   setUpBird();
+  setupPipes();
   lastTime = null;
   window.requestAnimationFrame(updateLoop);
 }
