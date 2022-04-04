@@ -2,12 +2,16 @@ const HOLE_HEIGHT = 120;
 const PIPE_WIDTH = 120;
 const PIPE_INTERVAL = 1500;
 const PIPE_SPEED = .75;
-const pipes = [];
-let timeSinceLastPipe = 0;
+let pipes = [];
+let timeSinceLastPipe;
+let pipesCleared;
 
 export function setupPipes() {
-  document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH)
-  document.documentElement.style.setProperty("--hole-height", HOLE_HEIGHT)
+  document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH);
+  document.documentElement.style.setProperty("--hole-height", HOLE_HEIGHT);
+  pipes.forEach(pipe => pipe.remove())
+  timeSinceLastPipe = PIPE_INTERVAL;
+  pipesCleared = 0;
 }
 
 export function getPipeRects() {
@@ -23,8 +27,17 @@ export function updatePipes(delta) {
   }
 
   pipes.forEach(pipe => {
+    if (pipe.left + PIPE_WIDTH < 0) {
+      pipesCleared++;
+      return pipe.remove();
+      
+    }
     pipe.left = pipe.left - delta * PIPE_SPEED;
   })
+}
+
+export function countPipes() {
+  return pipesCleared;
 }
 
 function createPipe() {
@@ -57,8 +70,8 @@ function createPipe() {
     },
     rects() {
       return [
-        topElem.getBoundingClientRect(),
-        bottomElem.getBoundingClientRect(),
+        topElement.getBoundingClientRect(),
+        bottomElement.getBoundingClientRect(),
       ];
     },
   };
