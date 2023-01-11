@@ -1,4 +1,5 @@
 import { updateBird, setUpBird, getBirdRect } from "./bird.js";
+import { updatePipes, setupPipes, countPipes, getPipeRects } from "./pipe.js";
 
 const title = document.querySelector("[data-title]");
 const subtitle = document.querySelector("[data-subtitle]");
@@ -15,6 +16,7 @@ function updateLoop(time) {
   }
   const delta = time - lastTime;
   updateBird(delta);
+  updatePipes(delta);
   if (checkLose()) {
     return handleLose();
   }
@@ -25,15 +27,27 @@ function updateLoop(time) {
 function checkLose() {
   const birdRect = getBirdRect();
 
+  const insidePipe = getPipeRects().some(rect => isCollision(birdRect, rect))
+
   const outsideWorld = birdRect.top < 0 || birdRect.bottom > window.innerHeight;
 
-  return outsideWorld;
+  return outsideWorld || insidePipe;
+}
+
+function isCollision(rect1, rect2) {
+  return (
+    rect1.left < rect2.right &&
+    rect1.top < rect2.bottom &&
+    rect1.right > rect2.left &&
+    rect1.bottom > rect2.top
+  )
 }
 
 // start game
 function handleStart() {
   title.classList.add("hide");
   setUpBird();
+  setupPipes();
   lastTime = null;
   window.requestAnimationFrame(updateLoop);
 }
@@ -44,7 +58,7 @@ function handleLose() {
   setTimeout(() => {
     title.classList.remove("hide");
     subtitle.classList.remove("hide");
-    subtitle.textContent = "0 pipes cleared"
+    subtitle.textContent = `${countPipes()} pipes cleared`
     document.addEventListener("keypress", handleStart, { once: true });
   }, 100);
 }
