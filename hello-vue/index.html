@@ -15,8 +15,14 @@
         }
     </style>
     <div id="app">
-        {{ greeting }}
-
+        <h1>{{ greeting }}</h1>
+        <br>
+        <h2>{{ command }}</h2>
+        <br>
+        <input v-model="yourNumber"/>
+        <div>Your number is {{ yourNumber }}</div>
+        <div>{{ yourNumber }} doubled is {{ doMath(yourNumber) }}</div>
+        <br>
         <!-- @ for events -->
         <button @click="toggle">Toggle</button>
         <!-- "v" for directives -->
@@ -28,13 +34,18 @@
         let app = Vue.createApp({
             data: function() {
                 return {
-                    greeting: "What's up",
-                    isVisible: true
+                    greeting: "Hello Vue",
+                    isVisible: true,
+                    yourNumber: "",
+                    command: "Enter a number:"
                 }
             },
             methods: {
                 toggle() {
                     this.isVisible = !this.isVisible
+                },
+                doMath(num) {
+                    return num * 2
                 }
             }
         })

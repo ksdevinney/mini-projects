@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    <style>
+        input {
+            margin: 10px;
+            padding: 5px;
+            display: block;
+        }
+        button {
+            margin: 10px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <custom-form />
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        let app = Vue.createApp({
+
+        })
+        // self-contained
+        app.component('custom-form', {
+            template: `
+                <form @submit="handleSubmit">
+                    <h1>{{ title }} </h1>
+                    <input type="email" />
+                    <input type="password" />
+                    <button>Log in</button>
+                </form>
+            `,
+            data() {
+                return {
+                    title: "Login form"
+                }
+            },
+            methods: {
+                handleSubmit() {
+                    console.log("submitted")
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
