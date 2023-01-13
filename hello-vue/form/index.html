@@ -25,21 +25,34 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         let app = Vue.createApp({
-
+            data: function() {
+                return {
+                    label: "Enter a number:",
+                    mathTest: "math test"
+                }
+            }
         })
         // self-contained
         app.component('custom-form', {
             template: `
                 <form @submit="handleSubmit">
                     <h1>{{ title }} </h1>
-                    <input type="email" />
-                    <input type="password" />
-                    <button>Log in</button>
+                    <custom-input type="email" label="email" />
+                    <custom-input type="password" :label="passwordLabel" />
+                    <custom-input v-model="testInput" v-bind:label="mathTest" />
+                    <button>Yes</button>
                 </form>
             `,
+            components: ["math-box", "custom-input"],
             data() {
                 return {
-                    title: "Login form"
+                    title: "Login form",
+                    email: "Email",
+                    password: "",
+                    emailLabel: "Email Label",
+                    passwordLabel: "Password Label",
+                    mathTest: "math",
+                    testInput: ""
                 }
             },
             methods: {
@@ -47,6 +60,48 @@
                     console.log("submitted")
                 }
             }
+        })
+        app.component('custom-input', {
+            template: `
+                <label>
+                    {{ label }}    
+                <input type="text" v-model="inputVal" >
+                </label>
+            `,
+            props: ["label", "modelValue"],
+            computed: {
+                inputVal: {
+                    get() {
+                        return this.modelValue
+                    },
+                    set(value) {
+                        console.log(value)
+                        value = value * 2;
+                        this.$emit("update:modelValue", value)
+                        console.log(value)
+                    }
+                }
+            },
+            // data() {
+            //     return {
+            //         inputVal: ""
+            //     }
+            // }
+        })
+        app.component('math-box', {
+            template: `
+                <label>
+                    {{ mathTest }}    
+                <input type="text" v-model="inputValue" />
+                </label>
+            `,
+            props: ["mathTest"],
+            data() {
+                return {
+                    inputValue: ""
+                }
+            }
+
         })
         app.mount('#app')
     </script>
